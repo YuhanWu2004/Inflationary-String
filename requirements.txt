@@ -1,0 +1,13 @@
+# Inflationary String Operation - Requirements
+# 
+# This project uses only Python standard library.
+# No external dependencies are required for core functionality.
+
+# Optional: For running tests with pytest (alternative to unittest)
+# pytest>=7.0.0
+
+# Optional: For code formatting
+# black>=22.0.0
+
+# Optional: For type checking
+# mypy>=0.950
