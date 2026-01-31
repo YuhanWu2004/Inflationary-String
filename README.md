@@ -3,7 +3,6 @@
 A Python program that finds English number words in strings and increments them by one.
 
 [![Python Version](https://img.shields.io/badge/python-3.6%2B-blue)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 ## 📋 Problem Statement
 
@@ -30,10 +29,8 @@ This is a solution to the AGI Coding Mini-Challenge.
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/inflate-numbers.git
+git clone https://github.com/YuhanWu2004/inflate-numbers.git
 cd inflate-numbers
-
-# No installation needed - uses standard library only!
 ```
 
 ### Running the Program
@@ -82,8 +79,6 @@ inflate-numbers/
 ✅ **Capitalization Preservation**: Maintains lowercase, Title Case, and ALL CAPS  
 ✅ **Optimized Performance**: O(n) time complexity with smart pattern filtering  
 ✅ **Comprehensive Tests**: 40+ test cases covering edge cases  
-✅ **Zero Dependencies**: Uses only Python standard library  
-✅ **Well Documented**: Clear code with docstrings and examples  
 
 ## 💡 Algorithm Design
 
@@ -91,7 +86,7 @@ inflate-numbers/
 
 The solution uses **regex-based pattern matching** with optimized lookup:
 
-1. **Separate mapping file** (`number_mappings.py`) for easy maintenance
+1. **Separate mapping file** (`number_mappings.py` only include number text from 1-100)
 2. **Length-based optimization**: Only checks patterns that fit in the text
 3. **Longest-match-first**: Ensures "thirteen" matches before "three"
 4. **Single-pass processing**: O(n) time complexity
@@ -102,7 +97,6 @@ The solution uses **regex-based pattern matching** with optimized lookup:
 - ✅ Efficient single-pass solution
 - ✅ Handles overlapping patterns correctly
 - ✅ Natural support for case-insensitive matching
-- ✅ Clean, maintainable code
 - ✅ Optimized to skip impossible patterns
 
 **Trade-offs:**
@@ -114,7 +108,7 @@ The solution uses **regex-based pattern matching** with optimized lookup:
 
 ```python
 # Instead of checking ALL patterns for short strings:
-# Old: Check all 28 patterns for "hi" (2 chars) ❌
+# Old: Check all patterns for "hi" (2 chars) ❌
 # New: Only check patterns of length ≤ 2 ✅
 
 text_len = len(text)
@@ -133,9 +127,6 @@ python run_tests.py
 
 # Or directly
 python test_inflate_numbers.py
-
-# With pytest (if installed)
-pytest test_inflate_numbers.py -v
 ```
 
 ### Test Coverage
@@ -147,8 +138,6 @@ The test suite includes **40+ test cases** covering:
 - ✅ Substring matching behavior
 - ✅ Overlapping patterns (thirteen vs. three)
 - ✅ Edge cases (empty strings, no numbers, punctuation)
-- ✅ Full number range (0-90)
-- ✅ Real-world examples
 
 **All tests passing ✓**
 
@@ -211,7 +200,7 @@ See `examples.py` for more detailed examples.
 
 **Why:** Maintainability and single responsibility principle
 ```python
-# number_mappings.py - Easy to update
+# number_mappings.py - only covers mapping for one to one hundred
 NUMBER_MAP = {
     'one': 'two',
     'ten': 'eleven',
@@ -274,7 +263,7 @@ inflate_string("lonely")    # → "ltwoly" (contains "one")
 This is **intentional** based on the "tennis" example, but may be unexpected.
 
 ### 2. Limited Number Range
-- Supports: 0-90 (zero through ninety)
+- Supports: 0-100 (zero through one hundred)
 - Does NOT support: 91+, compound numbers, ordinals
 
 ```python
@@ -333,33 +322,13 @@ inflate_string("nine hundred ninety-nine")
 - Compiled regex patterns (cached)
 - Parallel processing for very large texts
 
-## 🤝 Contributing
-
-This is a coding challenge submission, but improvements are welcome!
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/improvement`)
-3. Make your changes
-4. Run tests (`python run_tests.py`)
-5. Commit your changes (`git commit -am 'Add improvement'`)
-6. Push to the branch (`git push origin feature/improvement`)
-7. Open a Pull Request
-
 ## 📝 AI Usage
 
-This solution was developed with AI assistance (Claude). For complete documentation of the AI collaboration process, see [AI_USAGE.md](AI_USAGE.md).
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 👤 Author
-
-Created as a solution to the AGI Coding Mini-Challenge.
+This solution was developed with AI assistance (ChatGPT, Claude). For complete documentation of the AI collaboration process, see [AI_USAGE.md](AI_USAGE.md).
 
 ## 🙏 Acknowledgments
 
-- Anthropic for the coding challenge
+- Anthropic and ChatGPT for the coding challenge
 - Python community for excellent documentation
 - Everyone who reviews this code
 
