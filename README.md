@@ -69,8 +69,6 @@ inflate-numbers/
 ├── examples.py             # Usage examples
 ├── README.md               # This file
 ├── AI_USAGE.md            # Documentation of AI assistance
-├── requirements.txt        # Dependencies (empty - uses stdlib)
-└── .gitignore             # Git ignore rules
 ```
 
 ## 🎯 Features
@@ -252,75 +250,6 @@ else:
 - Efficient for long strings (single regex pass)
 - Scalable to large texts
 
-## ⚠️ Known Limitations
-
-### 1. Substring Matching Side Effects
-```python
-inflate_string("done")      # → "dtwo" (contains "one")
-inflate_string("money")     # → "mtwoy" (contains "one")
-inflate_string("lonely")    # → "ltwoly" (contains "one")
-```
-This is **intentional** based on the "tennis" example, but may be unexpected.
-
-### 2. Limited Number Range
-- Supports: 0-100 (zero through one hundred)
-- Does NOT support: 91+, compound numbers, ordinals
-
-```python
-inflate_string("ninety")       # ✅ → "ninetyone"
-inflate_string("one hundred")  # ❌ No mapping
-inflate_string("twenty-one")   # ❌ Treated as separate words
-```
-
-### 3. No Digit Support
-```python
-inflate_string("I have 5 apples")  # ❌ → "I have 5 apples" (unchanged)
-```
-
-### 4. No Ordinal Support
-```python
-inflate_string("first place")  # ❌ → "first place" (unchanged)
-```
-
-## 🚀 Future Improvements
-
-If given more time, here are potential enhancements:
-
-### 1. Configuration Options
-```python
-inflate_string(text, 
-               match_substrings=True,    # Current behavior
-               match_digits=False,        # NEW: Support "5" → "6"
-               match_ordinals=False)      # NEW: Support "first" → "second"
-```
-
-### 2. Word Boundary Mode
-```python
-# Option to avoid "done" → "dtwo"
-inflate_string("done", word_boundaries=True)  
-# → "done" (unchanged, only matches whole words)
-```
-
-### 3. Extended Number Support
-- Compound numbers: "twenty-one" → "twenty-two"
-- Large numbers: "one hundred" → "one hundred one"
-- Ordinals: "first" → "second"
-
-### 4. Using NLP Libraries
-```python
-# Use word2number + num2words for unlimited range
-from word2number import w2n
-import num2words
-
-# Could support ANY number
-inflate_string("nine hundred ninety-nine")
-# → "one thousand"
-```
-
-### 5. Performance Enhancements
-- Trie data structure for even faster lookups
-- Compiled regex patterns (cached)
-- Parallel processing for very large texts
 
 ## 📝 AI Usage
 
