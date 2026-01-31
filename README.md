@@ -123,7 +123,7 @@ This optimization improves performance especially for short strings.
 
 ```bash
 # Using the test runner (recommended)
-python run_tests.py
+python run_test.py
 
 # Or directly
 python test_inflate_numbers.py
