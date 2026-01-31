@@ -10,7 +10,7 @@ git clone https://github.com/yourusername/inflate-numbers.git
 cd inflate-numbers
 
 # Run all tests (should see 28 tests pass)
-python run_tests.py
+python run_test.py
 
 # Try the interactive demo
 python inflate_numbers.py
